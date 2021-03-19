@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Episode #: "
+read ep
+echo "Episode Name: "
+read name
+mkdir S1/Episodes/$ep
+mkdir S1/Episodes/$ep/Book S1/Episodes/$ep/Single
+
+touch S1/Episodes/$ep/Book/$ep.tex
+cp temp.tex S1/Episodes/$ep/Single/
+mv S1/Episodes/$ep/Single/temp.tex S1/Episodes/$ep/Single/$ep.tex
+
+echo "\\section{$name}" >> S1/Episodes/$ep/Book/$ep.tex
+ 

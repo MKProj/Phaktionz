@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}First Match}{3}{section.1}%
+\contentsline {section}{\numberline {2}Finn's Fan Fave Shop}{4}{section.2}%
+\contentsline {section}{\numberline {3}The Gang}{5}{section.3}%
+\contentsline {section}{\numberline {4}Lulo's Mystery}{6}{section.4}%
+\contentsline {section}{\numberline {5}Reflected Thoughts}{7}{section.5}%
