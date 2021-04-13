@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="crowbook">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Mustafif Khan">
+    
+    <title>Concepts</title>
+    <style type = "text/css">
+      body {
+    font-family: "Linux Libertine", "Georgia", serif;
+    text-align: justify;
+    font-size: 100%;
+}
+
+p {
+    text-indent: 1.25em;
+    margin:0;
+    hyphens: auto;
+}
+
+blockquote {
+    margin: 1em;
+    font-style: italic;
+}
+code {
+    font-size: 80%;
+    font-family: "Linux Libertine Mono", monospace;
+    background-color: #F0F0F0;
+}
+pre {
+    font-family: "Linux Libertine Mono", monospace;
+    margin: 1em;
+    padding-top: 0;
+    background-color: #F0F0F0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+/* Try to disable hyphenation in titles */
+h1, h2, h3, h4, h5, h5 {
+    adobe-hyphenate: none;
+    -ms-hyphens: none; /* Trident (Windows) */
+    -moz-hyphens: none; /* Gecko (Firefox) */
+    -webkit-hyphens: none; /* Webkit */
+    -epub-hyphens: none; /* EPUB 3 */
+    hyphens: none; /* Futur standard */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+    font-family: Linux Biolinum, sans-serif;
+    font-variant: small-caps;
+}
+
+/* Title of a part */
+h1.part {
+    font-size: 250%;
+    text-align: center;
+}
+
+/* The `Part X` section of a part */
+h2.part {
+    font-size: 175%;
+    text-align: center;
+}
+
+/* The "Chapter X" section of a chapter */
+span.chapter-header {
+    font-size: 75%;
+}
+
+/* Title of the book */
+h1.title {
+    text-align: center;
+    font-size: 300%;
+}
+/* Author */
+h2.author {
+    text-align: right;
+    font-size:  200%;
+}
+
+/* Subtitle */
+h2.subtitle {
+    text-align: center;
+    font-size: 200%;
+}
+
+/* When toc is displayed inlined */
+#toc ol, #toc ul {
+    padding: 0;
+    margin-left: 1em;
+}
+#toc li {
+    list-style-type: none;
+    margin: 0; padding: 0;
+}
+
+#toc li:before {
+    content: none;
+}
+
+#cover img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.image {
+    margin: auto;
+    width: 80%;
+}
+
+.image img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.rule {
+    text-align: center !important;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* The number of the note in an expanded footnote (e.g. [3]) */
+.note-number {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+td.note-number {
+    vertical-align: top;
+}
+
+/* When footnotes (try to) be diplayed as margin notes */
+.sidenote {
+    display: block;
+    float: right;
+    width: 30%;
+    border: 1px solid black;
+    margin: 1em;
+    padding: .5em;
+    margin-right: -1.5em;
+}
+
+.sidenote .note-number {
+    float: left;
+}
+
+/* The div class displaying notes at the end of a chapter */
+div.notes {
+    text-align: justify;
+    border-top: thin dashed black;
+    margin-top: 1em;
+}
+
+table.notes {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+table.notes tr td {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+table.notes tr td p {
+    text-indent: 0;
+}
+                 
+/* Every markdown table is included in a <div class = "table"> */
+.table {
+    margin: 1em;
+}
+
+.table table {
+    width: 80%;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    border-collapse: collapse;
+}
+
+.table table th, .table table td {
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
+
+.table table th {
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+
+span.initial { 
+    float: left;
+    font-size: 285%;
+    font-weight: bold;
+    margin-right: 0.05em;
+    line-height: 0.8em;
+}
+
+p.first-para {
+    text-indent: 0;
+}
+
+/* Use this for escape narrow space so it is non-breaking */
+.nnbsp {
+    /* white-space: nowrap;*/
+    word-spacing: -0.13em;
+    /* Following necessary for Kobo EPUB3 reader??? */
+    margin: 0;
+    padding: 0;
+}
+
+/* Default  HTML CSS file includes default EPUB CSS file */
+
+/* Colors for the navigation menu (toc) */
+nav {
+    background: #CBBFCC;
+    color: black;
+    border-right-color: black;
+}
+
+#nav a:link {
+    color: black;
+}
+
+#nav a:visited {
+    color: black;
+}
+
+/* Colors for top and footer */
+#top {
+    background-color: #444343;
+    color: white;
+}
+
+footer {
+    background-color: #444343;
+    color: white;
+}
+
+footer a, #top a {
+    color: #fc71ff;
+}
+
+footer a:hover, #top a:hover {
+    color: #b743fe;
+}
+
+/* Additional elements, only use for proofreading */
+/* Grammar error */
+.grammar-error {
+    color: red;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+/*    background: #d966ff;*/
+}
+
+
+p.first-para:first-letter {
+    font-size: 300%;
+    float: left;
+    font-weight: bold;
+    margin-right: 0.05em;
+    line-height: 1em;
+}
+
+/* The nav element corresponding to the navigation menu */
+nav {
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    overflow-y: auto;
+    font-size: 80%;
+    margin-left: 0;
+    border-right-width: 2px;
+    border-right-style: dashed;
+}
+
+#nav code {
+    background-color: transparent;
+}
+
+#nav a:link {
+    text-decoration: none;
+}
+
+#nav a:visited {
+    text-decoration: none;
+}
+
+#nav {
+    text-align: left;
+}
+
+#nav h2 {
+    text-align: center;
+}
+
+#nav li {
+    list-style-type: none;
+    text-indent: -1em;
+}
+
+#nav li:before {
+    content: none;
+}
+
+#nav ul {
+    padding-right: 1em;
+    padding-left: 1.5em;
+}
+
+/* The menu containing the button to display the navigation bar */
+#menu {
+    position: fixed;
+    z-index: 2;
+    top: 0em;
+    left: 1em;
+    transition: left 1s;
+}
+
+#menu img {
+    opacity: 0.5;
+}
+
+#menu img:hover {
+    opacity: 1.0;
+    cursor: pointer;
+}
+
+#menu-button {
+    height: 1.5em;
+    padding: 0.5em;
+}
+
+#book-button {
+    height: 1.5em;
+    padding: 0.5em;
+    float: left;
+}
+
+/* Hide navigation bar */
+#nav {
+    left: -21%;
+    transition: left 1s;
+}
+
+/* The main content of the book */
+#content {
+    overflow-y: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: margin-left 1s;
+}
+
+/* Used for multifiles HTML */
+.prev_chapter {
+    text-align: left;
+    text-indent: 0;
+    margin-bottom: 1em;
+    font-size: 120%;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.next_chapter {
+    text-align: right;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 120%;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+/* Improving readability for the HTML format only */
+p, blockquote, li, .image  {
+    margin-right: auto;
+    max-width: 33em;
+}
+
+blockquote {
+    padding: 1em;
+}
+
+#content {
+    text-align: center;
+}
+
+#page {
+    display: inline-block;
+    text-align: justify;
+    max-width: 33em;
+}
+
+#nav-container {
+    top: 0;
+    width: 100%;
+}
+
+#nav-title {
+    top: 0;
+}
+
+#toolbar {
+    top: 0;
+    float: left;
+}
+
+#toolbar img {
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+#top {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+#top p {
+    font-family: "Linux Biolinum";
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+footer, #top {
+    padding-top: .25em;
+    padding-bottom: .25em;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    transition: margin-left 1s;
+}
+
+footer a, #top a {
+    text-decoration: none;
+}
+
+footer p, #top p {
+    text-indent: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    max-width: 33em;
+}
+
+
+
+    </style>
+    <style type = "text/css" media = "print">
+      #page {
+    display: block;
+}
+
+.chapter {
+    page-break-before: always;
+}
+
+#menu {
+    display: none;
+}
+
+#nav {
+    display: none;
+}
+    </style>
+   <script>
+function on(name) {
+    var elements = document.getElementsByClassName(name);
+    for (var i = 0; i < elements.length; i++) {
+        var elem = elements[i];
+        elem.style.backgroundColor = "pink";
+    }
+}
+function off(name) {
+    var elements = document.getElementsByClassName(name);
+    for (var i = 0; i < elements.length; i++) {
+        var elem = elements[i];
+        elem.style.backgroundColor = "white";
+    }
+}
+
+var display_menu = false;
+function toggle() {
+    if (display_menu == true) {
+        display_menu = false;
+        document.getElementById("nav").style.left = "-21%";
+        document.getElementById("content").style.marginLeft = "0%";
+        document.getElementById("menu").style.left = "1em";
+/*        if(document.getElementById("top")) {
+            document.getElementById("top").style.left = "0";
+        }
+        if(document.getElementById("footer")) {
+            document.getElementById("footer").style.marginLeft = "0%";
+        }*/
+    } else {
+        display_menu = true;
+        document.getElementById("nav").style.left = "0";
+        document.getElementById("content").style.marginLeft = "20%";
+        document.getElementById("menu").style.left = "20%";
+/*        if(document.getElementById("top")) {
+            document.getElementById("top").style.left = "20%";
+        }
+        if(document.getElementById("footer")) {
+            document.getElementById("footer").style.marginLeft = "20%";
+        }*/
+    }
+}
+
+
+
+   </script>
+
+
+  </head>
+  <body>
+    
+<script type = 'application/ld+json'>
+{
+    "@context": "http://schema.org/",
+    "@type": "Book",
+    "author": "Mustafif Khan",
+    "name": "Concepts",
+    
+    
+    
+    
+    
+    "inLanguage": "en"
+
+
+
+
+}
+</script>
+    <nav id = "nav">
+      <div id = "nav-title">
+        <h2><a href = "#link-0">Concepts</a></h2>
+      </div>
+      <ul>
+<li><a href="#link-1">1. Episode 1: First Match</a></li>
+<li><a href="#link-2">2. Episode 2 Finn’s Fan Fave Shop</a></li>
+<li><a href="#link-3">3. Episode 3 The Gang</a></li>
+<li><a href="#link-4">4. Episode 4 Lulo’s Mystery</a></li>
+<li><a href="#link-5">5. Episode 5 Reflected Thoughts</a></li>
+<li><a href="#link-6">6. Episode 6 CorruQuatros</a></li>
+<li><a href="#link-7">7. Episode Mythical Lores</a></li>
+<li><a href="#link-8">8. Episode 8-10 SHOP TOURNAMENT!!!</a></li>
+<li><a href="#link-14">9. Episode 11 Mix and Match!</a></li>
+<li><a href="#link-17">10. Episode 12 Sleepover!</a></li>
+<li><a href="#link-18">11. Episode 13 The Prodigy</a></li>
+<li><a href="#link-19">12. Episode 14 Pro Procastinating</a></li>
+<li><a href="#link-20">13. Episode 15 The Weird Dream</a></li>
+<li><a href="#link-21">14. Episode 16 The Ultimate Dragon Warrior</a></li>
+<li><a href="#link-22">15. Episode 17 - 20 Cities!</a></li>
+<li><a href="#link-30">16. Episode 1 New Changes</a></li>
+<li><a href="#link-31">17. Episode 2 Advance Classes</a></li>
+<li><a href="#link-32">18. Episode 3 Mystery Girl</a></li>
+
+</ul>
+
+    </nav>
+
+    <div id = "content">
+      
+      <div id = "page">
+        <header>
+
+          <div id = "menu">
+            <img id = "menu-button" onclick="toggle();"
+                 src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iMjAwbW0iCiAgIGhlaWdodD0iMjAwbW0iCiAgIHZpZXdCb3g9IjAgMCA3MDguNjYxNDIgNzA4LjY2MTQxIgogICBpZD0ic3ZnMiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibWVudS5zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM0IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0iYmFzZSIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgICAgYm9yZGVyb3BhY2l0eT0iMS4wIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTp6b29tPSIwLjQ5NDk3NDc1IgogICAgIGlua3NjYXBlOmN4PSIxMDUuNjEyNzUiCiAgICAgaW5rc2NhcGU6Y3k9IjQwNy4wNjM5MSIKICAgICBpbmtzY2FwZTpkb2N1bWVudC11bml0cz0icHgiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ibGF5ZXIxIgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjEzNjYiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iNzA0IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNyIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIiAvPgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTciPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgIDwvY2M6V29yaz4KICAgIDwvcmRmOlJERj4KICA8L21ldGFkYXRhPgogIDxnCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpZD0ibGF5ZXIxIgogICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsLTM0My43MDA3OSkiPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEwMDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Im0gMTA0LjMzMDcxLDQ2OS41MDUxIDUwMCwwIgogICAgICAgaWQ9InBhdGg0MTM2IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxMDA7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBkPSJtIDEwNC4zMzA3MSw3MDQuNTA1MSA1MDAsMCIKICAgICAgIGlkPSJwYXRoNDEzNi01IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIGlua3NjYXBlOnRyYW5zZm9ybS1jZW50ZXIteD0iNzEuNDI4NTcyIgogICAgICAgaW5rc2NhcGU6dHJhbnNmb3JtLWNlbnRlci15PSItMjQyLjg1NzE2IiAvPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEwMDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Im0gMTA0LjMzMDcxLDkzOS41MDUwNiA1MDAsMCIKICAgICAgIGlkPSJwYXRoNDEzNi01LTMiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgaW5rc2NhcGU6dHJhbnNmb3JtLWNlbnRlci14PSI3MS40Mjg1NzIiCiAgICAgICBpbmtzY2FwZTp0cmFuc2Zvcm0tY2VudGVyLXk9Ii0yNDIuODU3MTYiIC8+CiAgPC9nPgo8L3N2Zz4K"
+                 alt = "Table of contents" title = "Table of contents" />
+          </div>
+	  <h2 class="author">Mustafif Khan</h2>
+          <h1 id = "link-0" class="title" >Concepts</h1>
+	  
+        </header>
+
+        <div id = "chapter-0" class = "chapter">
+  <h1 id = 'link-1'><span class = 'chapter-header'>Chapter 1</span><br />Episode 1: First Match</h1><ul>
+<li><p id = "para-1">We are introduced to the Main Character, Zane.</p>
+</li>
+<li><p id = "para-2">It starts off with a “dream” or “vision”, of a talk between Prestige and someone who Zane is seeing perspective of.</p>
+</li>
+<li><p id = "para-3">Zane is shown to want to prove himself, and to redeem his father.</p>
+<ul>
+<li><p id = "para-4">Shown participating in class, even when he was wrong in most questions.</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-5">Zane is later shown following a classmate to an abandoned classroom, where he sees a table in which it has a symbol similar to a deck he owns.</p>
+</li>
+<li><p id = "para-6">Zane meets Lulo, and they have their first match, where Zane learns how to play</p>
+<ul>
+<li><p id = "para-7">Zane (Warriors - Basic)</p>
+</li>
+<li><p id = "para-8">Lulo (Mythicals - United)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-9">Zane loses, but Lulo sees potential in him, and tells him he knows someone who can help him.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-1" class = "chapter">
+  <h1 id = 'link-2'><span class = 'chapter-header'>Chapter 2</span><br />Episode 2 Finn’s Fan Fave Shop</h1><ul>
+<li><p id = "para-10">Lulo brings Zane to a Card Shop, Finn’s Fan Fave Shop, where Zane can be trained.</p>
+</li>
+<li><p id = "para-11">Zane asking the owner, Finn where the owner can be found, is misunderstood as a punk.</p>
+</li>
+<li><p id = "para-12">Finn challenges Zane, and Zane blindly accepts.</p>
+<ul>
+<li><p id = "para-13">Finn (Titans - Hibernated Legends)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-14">Zane loses, and Finn is told he is there to train from Lulo, so then Zane is accepted into Finn’s training program.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-2" class = "chapter">
+  <h1 id = 'link-3'><span class = 'chapter-header'>Chapter 3</span><br />Episode 3 The Gang</h1><ul>
+<li><p id = "para-15">Zane is introduced to other members that are also part of Finn’s trainings.</p>
+</li>
+<li><p id = "para-16">Introduces Khloe and Percy who is in a match and shows off his Mythical Elf Deck, and Reinforcement.</p>
+</li>
+<li><p id = "para-17">Khloe eases Zane in with the norms of these trainings, as well as Percy’s and Lulo’s rivalry.</p>
+</li>
+<li><p id = "para-18">Percy who tends to get annoyed from Lulo (using one archetype instead of all), challenges him to see who the Mythical King is.</p>
+<ul>
+<li><p id = "para-19">Percy (Mythical - Elve’s Reinforcement)</p>
+</li>
+<li><p id = "para-20">Lulo (Mythical - United Army)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-21">Percy loses and admits his defeat, while Lulo stands to not be surprised of the result.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-3" class = "chapter">
+  <h1 id = 'link-4'><span class = 'chapter-header'>Chapter 4</span><br />Episode 4 Lulo’s Mystery</h1><ul>
+<li><p id = "para-22">Zane comes to the store suprised to be greeted by Lulo.</p>
+</li>
+<li><p id = "para-23">He finds out that Lulo works at the shop as Finn’s assistant, as well as lives with Finn.</p>
+</li>
+<li><p id = "para-24">Khloe and Percy decide to tell Zane, Lulo’s story since he is part of them, but they think it’s best to talk at a nearby cafe instead of the shop.</p>
+</li>
+<li><p id = "para-25">At the cafe, Khloe prepares to tell Zane, Lulo’s story as he is her childhood friend, and she has known him for a while.</p>
+</li>
+<li><p id = "para-26">Lulo was bullied a lot in school, and Phaktionz was a way they determined the school social hierarchy.</p>
+</li>
+<li><p id = "para-27">Lulo later got into a dark place when his parents died from an apparent sickness.</p>
+</li>
+<li><p id = "para-28">Finn finds them talking about it, and decides to talk about how he kept seeing Lulo outside his shop, but never go in. Finn later finding out he was alone, decided to become his guardian as he had lost his daughter recently, knowing how it feels to lose someone. Finn also explains how he sees Lulo sometimes still struggling with it.</p>
+</li>
+<li><p id = "para-29">We see Lulo looking at his deck, and not putting it back into the deck box</p>
+</li>
+<li><p id = "para-30">When they come back, Lulo gives back his United deck, and says he doesn’t need it anymore.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-4" class = "chapter">
+  <h1 id = 'link-5'><span class = 'chapter-header'>Chapter 5</span><br />Episode 5 Reflected Thoughts</h1><ul>
+<li><p id = "para-31">Continues off of Episode 4 - Lulo’s Mystery</p>
+</li>
+<li><p id = "para-32">Lulo is frustrated about his United deck, and returns it back to Finn</p>
+</li>
+<li><p id = "para-33">The gang questions his choice as he tells Finn he won’t be playing anymore. The others try to convince him to play.</p>
+</li>
+<li><p id = "para-34">He explains it’s the day of the incident, and concluded that it was his fault of what happened. He can’t look at himself the same way.</p>
+</li>
+<li><p id = "para-35">He locks himself in his room, and refuses to talk to anyone.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-5" class = "chapter">
+  <h1 id = 'link-6'><span class = 'chapter-header'>Chapter 6</span><br />Episode 6 CorruQuatros</h1><ul>
+<li><p id = "para-36">Zane trying to figure out how to help Lulo wanders off to a Phaktionz University Campus, hopefully seeking some advice from more experienced people.</p>
+</li>
+<li><p id = "para-37">There he meets a curious fellow, who is also looking for wisdom in the campus, named Syco.</p>
+</li>
+<li><p id = "para-38">Zane and Syco battle,, with Syco using his unique Cyborgs Deck</p>
+<ul>
+<li><p id = "para-39">Syco (Cyborgs - Overdrive)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-40">Cyborgs being a faction that is never recalled in the Phaktionz history, and is considered a Delphic faction.</p>
+</li>
+<li><p id = "para-41">Zane looking with the battle, he realizes that people sometimes sometimes need to rely on others to grow strong, and we see a flashback of him with his Dad.</p>
+</li>
+<li><p id = "para-42">Zane goes to Lulo, and talks to him, Lulo goes back to Finn, and in a moment of silence and awkwardness, Finn gives his deck back, and says,</p>
+</li>
+</ul>
+<blockquote><p id = "para-43">“I gave you this, not because I wasn’t using it, but because Lin reflects you”<br />
+“Everyone has their dark and light sides”</p>
+</blockquote>
+
+</div><div id = "chapter-6" class = "chapter">
+  <h1 id = 'link-7'><span class = 'chapter-header'>Chapter 7</span><br />Episode Mythical Lores</h1><ul>
+<li><p id = "para-44">We see a vision where Prestige tells him the story of Helios and Lin.</p>
+</li>
+<li><p id = "para-45">We get to see Lin as the great warrior who had first brought peace within the groups in Mythicals</p>
+</li>
+<li><p id = "para-46">We see the relationship between Lin and Hulio</p>
+<ul>
+<li><p id = "para-47">Noticing they were brothers</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-48">The day of choosing came for Helios’s successor</p>
+<ul>
+<li><p id = "para-49">Hulio had become it leaving Lin in jealousy</p>
+</li>
+<li><p id = "para-50">Lin caught up in rage and jealousy argues with Helios, leaving in a bitter argument</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-51">Lin hearing voices in his head, leads his army in the Forbidden territory</p>
+<ul>
+<li><p id = "para-52">As Lin and his army approaches it, they are consumed in the darkness and never seen again</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div><div id = "chapter-7" class = "chapter">
+  <h1 id = 'link-8'><span class = 'chapter-header'>Chapter 8</span><br />Episode 8-10 SHOP TOURNAMENT!!!</h1><h2 id = "link-9">Randoms</h2>
+<ol>
+<li><p id = "para-53">William</p>
+</li>
+<li><p id = "para-54">Mia</p>
+</li>
+<li><p id = "para-55">Ava</p>
+</li>
+<li><p id = "para-56">Noah</p>
+</li>
+<li><p id = "para-57">Oliver</p>
+</li>
+<li><p id = "para-58">Sophia</p>
+</li>
+<li><p id = "para-59">Liam</p>
+</li>
+<li><p id = "para-60">Charlotte</p>
+</li>
+</ol>
+<h2 id = "link-10">Mains</h2>
+<ol>
+<li><p id = "para-61">Zane</p>
+</li>
+<li><p id = "para-62">Percy</p>
+</li>
+<li><p id = "para-63">Lulo</p>
+</li>
+<li><p id = "para-64">Khloe</p>
+</li>
+</ol>
+<h2 id = "link-11">Episode 8 Part 1</h2>
+<p id = "para-65">Will feature the first 2 rounds, necessary matches will only be on:<br />
+Round 1:</p>
+<ol>
+<li><p id = "para-66">Khloe VS Lulo</p>
+<ul>
+<li><p id = "para-67">Lulo (W1L0), Khloe (W0L1)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-68">Zane VS Liam</p>
+<ul>
+<li><p id = "para-69">Zane(W1L0)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-70">Percy VS Charlotte</p>
+<ul>
+<li><p id = "para-71">Percy (W1L0)</p>
+</li>
+</ul>
+</li>
+</ol>
+<p id = "para-72">Round 2:</p>
+<ol>
+<li><p id = "para-73">Lulo VS Sophia</p>
+<ul>
+<li><p id = "para-74">Lulo (W2L0)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-75">Zane VS Percy</p>
+<ul>
+<li><p id = "para-76">Zane (W2L0), Percy (W1L1)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-77">Khloe VS Oliver</p>
+<ul>
+<li><p id = "para-78">Khloe (W1L1)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id = "link-12">Episode 9 Part 2</h2>
+<p id = "para-79">Round 3:</p>
+<ol>
+<li><p id = "para-80">Percy VS Liam</p>
+<ul>
+<li><p id = "para-81">Percy (W2L1)</p>
+</li>
+</ul>
+</li>
+<li><p id = "para-82">Khloe VS Ava</p>
+<ul>
+<li><p id = "para-83">Khloe (W2L1)</p>
+</li>
+</ul>
+</li>
+</ol>
+<p id = "para-84">Zane and Lulo prepare to battle each other, while Khloe and Percy try to fight their way for third place.</p>
+<h2 id = "link-13">Episode 10 Part 3</h2>
+<p id = "para-85">Round 4:</p>
+<ol>
+<li><p id = "para-86">Zane VS Lulo</p>
+<ul>
+<li><p id = "para-87">Zane (W3L0), Lulo (W3L1)</p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote><p id = "para-88">Very close game, and both players are down with very few cards in deck.</p>
+</blockquote>
+<ol>
+<li><p id = "para-89">Percy VS Khloe</p>
+<ul>
+<li><p id = "para-90">Khloe (W3L1), Percy (W2L2)</p>
+</li>
+</ul>
+</li>
+</ol>
+<p id = "para-91">We see the new team, as it goes Zane -&gt; Lulo -&gt; Khloe -&gt; Percy</p>
+<blockquote><p id = "para-92">Note: Khloe is third and not second with Lulo since she was technically in the elimination bracket.</p>
+</blockquote>
+
+</div><div id = "chapter-8" class = "chapter">
+  <h1 id = 'link-14'><span class = 'chapter-header'>Chapter 9</span><br />Episode 11 Mix and Match!</h1><p id = "para-93">We get to see the new team that won the shop tourney, however Finn has a challenge for them, not only to build teamwork but understand each other better. The way he accomplishes this is by making each member swap with another one.</p>
+<h2 id = "link-15">Original Decks</h2>
+<ul>
+<li><p id = "para-94">Zane : Warrior’s Basic</p>
+</li>
+<li><p id = "para-95">Lulo : United Army</p>
+</li>
+<li><p id = "para-96">Khloe : Insect Manipulation</p>
+</li>
+<li><p id = "para-97">Percy : Reinforced Elf Army</p>
+</li>
+</ul>
+<h2 id = "link-16">Mixed Decks</h2>
+<ul>
+<li><p id = "para-98">Zane : United Army</p>
+</li>
+<li><p id = "para-99">Lulo : Insect Manipulation</p>
+</li>
+<li><p id = "para-100">Khloe : Reinforced Elf Army</p>
+</li>
+<li><p id = "para-101">Percy : Warriors Basic</p>
+</li>
+</ul>
+<p id = "para-102">We then get:</p>
+<ul>
+<li><p id = "para-103">Zane VS Percy (Zane W)</p>
+</li>
+<li><p id = "para-104">Khloe VS Lulo (Lulo W)</p>
+</li>
+</ul>
+<p id = "para-105">We see them struggling trying to understand each other decks, Finn tells them the importance of understanding each other’s decks, and as for the cities they need more practice.</p>
+
+</div><div id = "chapter-9" class = "chapter">
+  <h1 id = 'link-17'><span class = 'chapter-header'>Chapter 10</span><br />Episode 12 Sleepover!</h1><p id = "para-106">The team has a sleepover at Finn’s, as fun as it may sound, Finn planned many twists in this sleepover. In the sleepover, Finn has put random challenges everywhere, and we learn a little about Finn. While exploring, Zane finds a picture of Finn and two girls. He looks into it, and Finn finds him looking, and says that those were the two loves of his life. He explains wife and daughter died from an unknown random sickness. His daughter went missing and was pronounced dead after three months.</p>
+<p id = "para-107">Finn asks Zane about his father and what happened and why Zane should redeem him. The team huddled up to hear his story.</p>
+
+</div><div id = "chapter-10" class = "chapter">
+  <h1 id = 'link-18'><span class = 'chapter-header'>Chapter 11</span><br />Episode 13 The Prodigy</h1><p id = "para-108">Finn sets off the team to explore other shops and see the competition. They visit a shop called Alpha Legends, where they are known to have a strong team.</p>
+<p id = "para-109">When they arrive at the shop, they see someone leave not knowing who it is, and don’t question it. (Later realizing it’s Al Kover, the missing member).</p>
+<p id = "para-110">There they see a match between Brale and Tesa, Brale playing his Oceanics and Tesa his mysterious Probers. They see the end game in which Tesa wins.</p>
+<p id = "para-111">It is announced Tesa, the Phaktionz Progidy won, Zane asks around why he’s called that and meets Tesa. Tesa shows them his Probers Deck, a faction that never recalled in Phaktionz history. The gang gets to meet the team, but they are sadly not participating.</p>
+<p id = "para-112">They tell them that their other member left (They recall that person leaving), and that it’s too late for a new member to qualify for the tourney. Tesa then asks Zane for a battle, just to see how strong he is.</p>
+
+</div><div id = "chapter-11" class = "chapter">
+  <h1 id = 'link-19'><span class = 'chapter-header'>Chapter 12</span><br />Episode 14 Pro Procastinating</h1><p id = "para-113">While being busy practicing for the Cities tournament, the gang also is stressed out by the winter final exams. Zane being most stressed out from the ultimatum given to him by his Mom, if he doesn’t do well, he won’t be able to play Phaktionz.</p>
+<p id = "para-114">He asks his smartest friends, Khloe and Tesa, not asking Percy (offended) and Lulo not leaving his room, being busy studying. Khloe, and Tesa set out to help him by mixing problems and Phaktionz together.</p>
+<p id = "para-115">Zane ends up doing really well, but to their surprise he followed Percy’s last minute pro procrastinating advice.</p>
+
+</div><div id = "chapter-12" class = "chapter">
+  <h1 id = 'link-20'><span class = 'chapter-header'>Chapter 13</span><br />Episode 15 The Weird Dream</h1><p id = "para-116">Zane asleep has another vision looking into the Phaktionz Realm past, he sees a Council room, in which the three origins, and their banners are seated in a round table. The table is a circle, with each origin in the corner, with their letters where they are seated and a Z in the center. During the meeting, King (w. Kleo) and Helios (w. Hulio) are asking of Prestige’s presence, and then are told that he will not be attending.</p>
+<p id = "para-117">They talk about the apparent worm holes, or breaks in the realm that is causing chaos. In which Helios proposes borders that should be set up to deal with the situation temporarily. However each party disagree of the placement of the borders feeling that some of their realm shouldn’t be taken. This causes a huge argument to spur up, which causes problem with how Helios calls King a copycat to his creations and King accuses to the same.</p>
+<p id = "para-118">It ends with, if there’s no borders, war and chaos will break out.</p>
+<blockquote><p id = "para-119">King looks and says, “Then war it shall be!”. They both disappear from the council room. (At moments during the discussion, King does seem to have sudden headaches and/or rough coughs in which Kleo asks if she is okay.)<br />
+We then return to Zane waking up sweating and confused</p>
+</blockquote>
+
+</div><div id = "chapter-13" class = "chapter">
+  <h1 id = 'link-21'><span class = 'chapter-header'>Chapter 14</span><br />Episode 16 The Ultimate Dragon Warrior</h1><p id = "para-120">Continues off of Episode 15 ending, and starts off with Zane completely shaken from his dream. He realizes at this point it must be something more of a dream, but he really doesn’t know what to do.</p>
+<p id = "para-121">He goes to the shop as the team has only a few days left to prepare. They are all fixing up their deck, and Zane is recommended to play a Tier 3 in his deck. Finn gives him different Warrior Tier 3’s to try out.</p>
+<p id = "para-122">Zane checks them out while he runs to get a few stuff for the gang, he runs into an old man and the cards fall to the ground. The old man with black glasses, a hat, cane and seemingly frail appearance notices he plays Phaktionz.</p>
+<blockquote><p id = "para-123">He looks at him, says “You play Phaktionz, I can see you as a pure hearted boy, sorry for this, please accept this gift.”</p>
+</blockquote>
+<p id = "para-124">He gives him cards, <em>“Fulthrottle the Ultimate Dragon Warrior”</em>, and says “you look like the right person for this.” Zane picks up the rest of the cards, and stands up to thank him, he notices the man is gone. He sees the card with him, and goes back to the shop. Lulo asks him as he notices Zane fixing his deck,</p>
+<blockquote><p id = "para-125">Zane ends off saying, “Prepared for any battle that arises me”.</p>
+</blockquote>
+
+</div><div id = "chapter-14" class = "chapter">
+  <h1 id = 'link-22'><span class = 'chapter-header'>Chapter 15</span><br />Episode 17 - 20 Cities!</h1><p id = "para-126">The Cities tournament is a tournament that features local card shops to sponsor teams to compete, and qualify for regionals. Over here, the team meets Team Wild King and Alpha Legends. Team Wild Kings consists of players who all play the Kingdom Faction and Khloe’s best friend (Aziza Cambri). Team Alpha Legends consists of players who are experts in their factions, 2 Oceanics players, a descendent player who came back just in time to qualify and a probers player (Tesa Heinds).</p>
+<p id = "para-127">The tournament consists of 100 people and will feature around 4 Zane Battles and 5 short gang members’ battles.</p>
+<h2 id = "link-23">Episode 17 Part 1</h2>
+<h3 id = "link-24">Match: Team Strong Willed (Random team)</h3>
+<ul>
+<li><p id = "para-128">Zane - Opo (Titans) W</p>
+</li>
+<li><p id = "para-129">Khloe - Fofo (Descendents - Dinos) W</p>
+</li>
+<li><p id = "para-130">Lulo - Loko (Giants) W</p>
+</li>
+</ul>
+<h2 id = "link-25">Episode 18 Part 2</h2>
+<h3 id = "link-26">Match: Team Wild Kings</h3>
+<ul>
+<li><p id = "para-131">Zane - Tigero L</p>
+</li>
+<li><p id = "para-132">Khloe - Aziza W</p>
+</li>
+<li><p id = "para-133">Percy - Sventher W</p>
+</li>
+<li><p id = "para-134">Lulo - Elle L’fant W</p>
+</li>
+</ul>
+<h2 id = "link-27">Episode 19 Part 3</h2>
+<h3 id = "link-28">Match: Team Alpha Legends</h3>
+<ul>
+<li><p id = "para-135">Zane - Brale W</p>
+</li>
+<li><p id = "para-136">Lulo (United) - Tesa L</p>
+</li>
+<li><p id = "para-137">Khloe - Horale L</p>
+</li>
+<li><p id = "para-138">Percy - Al W</p>
+</li>
+</ul>
+<p id = "para-139">At the end of this episode, we see a tie so each team must decide a player to battle to break the ice.</p>
+<h2 id = "link-29">Episode 20 Part 4</h2>
+<ul>
+<li><p id = "para-140">Zane - Tesa W (Wins by using Fulthrottle Ultimate and Fulthrottle Blast)</p>
+</li>
+</ul>
+<p id = "para-141">Ends off with them celebrating and that regionals are next year and that they could relax and all. (Currently its January)</p>
+
+</div><div id = "chapter-15" class = "chapter">
+  <h1 id = 'link-30'><span class = 'chapter-header'>Chapter 16</span><br />Episode 1 New Changes</h1><ul>
+<li><p id = "para-142"><em>Season 2 starts off with being placed after Summer break</em></p>
+</li>
+<li><p id = "para-143">We start off with catching up with the months passed after their win in the Cities.</p>
+</li>
+<li><p id = "para-144">Lulo and Zane prepare for Corruquatro University for Phaktionz Professional Studies</p>
+</li>
+<li><p id = "para-145">Lulo has a mysterious girlfriend that the gang has only heard of about, but yet to meet</p>
+</li>
+<li><p id = "para-146">Finn hasn’t been at the store much, relying on Lulo to run it most days, and is depressed but is unknown for now</p>
+</li>
+<li><p id = "para-147">Khloe is back from working at a summer camp</p>
+</li>
+<li><p id = "para-148">Percy has been at the store day and day, training non-stop with his new Alchemists deck</p>
+</li>
+<li><p id = "para-149">Zane has been staying home, and studying on Phaktionz history after many weird dream and seeing glimpses.</p>
+</li>
+</ul>
+<p id = "para-150">The gang sees each other after not seeing each other for 2 months, and are telling their own summer story. Percy pumped to see everyone again, he challenges Zane, and they battle, with Percy surprising Zane and winning.</p>
+
+</div><div id = "chapter-16" class = "chapter">
+  <h1 id = 'link-31'><span class = 'chapter-header'>Chapter 17</span><br />Episode 2 Advance Classes</h1><ul>
+<li><p id = "para-151">Zane and Lulo both prepare for classes at Corruquatro Univesity, considered to be the best Phaktionz University, and since they won Cities, are eligible for Advance classes.</p>
+</li>
+<li><p id = "para-152">When they go there, they meet a few other classmates, and Zane meets a fellow named Zepellin, and when they meet, they both get a sudden headache. Nothing much to think of that, they exchange information on who they are and their position in Phaktionz.</p>
+</li>
+<li><p id = "para-153">As they meet Zepellin’s ‘gang’, <em>(Lyla, Nimu, Syco, and Hayes)</em>, Zane notices an awkward silence between Lulo and Lyla when they introduce each other, as if they had already met.</p>
+</li>
+<li><p id = "para-154">Zane asks a weird question, and creates quite an awkward moment, when his curiosity seems to be really wondering.</p>
+</li>
+</ul>
+<blockquote><p id = "para-155">“I wonder, when you look more into Phaktionz, you could really think that it’s an actual realm itself in the distant universe.”</p>
+</blockquote>
+<ul>
+<li><p id = "para-156">They then proceed to classes.</p>
+</li>
+<li><p id = "para-157">We return back to the store where Khloe is helping out, and the episode ends off when we see Lyla come into the store.</p>
+</li>
+</ul>
+
+</div><div id = "chapter-17" class = "chapter">
+  <h1 id = 'link-32'><span class = 'chapter-header'>Chapter 18</span><br />Episode 3 Mystery Girl</h1><ul>
+<li><p id = "para-158">Starts off with Lyla appearing at the shop, and when she comes in, we also see Finn come in to consult the team.</p>
+</li>
+<li><p id = "para-159">We see Lyla look at Finn passing her, surprised, but still not clear to the viewer why, but then she goes to Lulo, and everyone just stares at him.</p>
+</li>
+<li><p id = "para-160">She gives him one of the books he forgot back at class, then they stare into each other’s eyes, (awkwardly as the others look back and forth of them), and then Finn breaks the ice when he asks the team for his attention.</p>
+</li>
+<li><p id = "para-161">Finn asks who this girl is, and she responds disgruntled “Just a friend of Lulo’s...”, then Finn talks to the team about the upcoming Regionals, and that he feels like he can lead the team again, still not telling why he was incognito for a while.</p>
+</li>
+<li><p id = "para-162">Finn then tells the team they will have a new member in the team, the former member in Team Alpha, Tesa Heinds. She shows off her new Mad Experiments Probers deck, but as Finn announces his new member, Lulo also has news for the team, he had actually joined a different team.</p>
+</li>
+<li><p id = "para-163">Everyone confused, he tells he wants a new experience, and that he wants to spread his wings as a Phaktionz player.</p>
+</li>
+<li><p id = "para-164">Lulo leaves the store with Lyla, and they all suspect she’s the reason, which gives the group an idea to spy on her and find out the truth about her.</p>
+</li>
+</ul>
+
+</div>
+
+      </div>
+      
+    </div>
+  </body>
+</html>
